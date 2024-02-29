@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: ose-rs
+  namespace: dev
+spec:
+  replicas: 12
+  selector:
+    matchLabels:
+      app: acada-app
+  template:
+    metadata:
+      name: ose-pod
+      labels:
+        app: acada-app
+    spec:
+      containers:
+      - name: ose-c
+        #image: acadalearning/acada:${ECR} used for automated task to download the latest version of the image from the web
+        image: acadalearning/acada:2.5
+        ports:
+        - containerPort: 8080
