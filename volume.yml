@@ -17,10 +17,7 @@ spec:
   nfs:
     path: /mnt/share
     server: 172.31.10.130
-
-
 ---
-
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
